@@ -30,7 +30,8 @@
     "react-dom": "^18.2.0",
     "react-use": "^17.4.0",
     "sass": "^1.58.3",
-    "turndown": "^7.1.1"
+    "turndown": "^7.1.1",
+    "turndown-plugin-gfm": "^1.0.2"
   },
   "devDependencies": {
     "@octokit/types": "^9.0.0",

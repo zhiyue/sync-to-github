@@ -15,7 +15,8 @@
     {
       "matches": [
         "https://chat.openai.com/*",
-        "https://sharegpt.com/c/*"
+        "https://sharegpt.com/c/*",
+        "https://claude.ai/*"
       ],
       "js": [
         "assets/content_script.js"
