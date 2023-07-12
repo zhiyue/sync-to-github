@@ -22,7 +22,11 @@ export const githubCreateFile = async (payload: SyncPayload): Promise<CreateOrUp
   })
 
   const fileName = payload.title
-  const filePath = `${payload.userConfig.pathPrefix || ''}/${fileName}`.replace(/^\//, '')
+  // 获取当前日期
+  const date = new Date()
+  // 格式化日期
+  const formatDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
+  const filePath = `${payload.userConfig.pathPrefix || ''}/${formatDate}/${fileName}`.replace(/^\//, '')
 
   // Base64 encode the file content
   const encodedContent = base64encode(payload.markdown)
@@ -45,7 +49,11 @@ export const githubUpdateFile = async (payload: SyncPayload) => {
   })
 
   const fileName = payload.title
-  const filePath = `${payload.userConfig.pathPrefix}/${fileName}`
+  // 获取当前日期
+  const date = new Date()
+  // 格式化日期
+  const formatDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
+  const filePath = `${payload.userConfig.pathPrefix}/${formatDate}/${fileName}`
 
   const currentFileInfo = await octokit.request('GET /repos/{owner}/{repo}/contents/{path}', {
     owner: payload.userConfig.owner,
